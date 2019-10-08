@@ -1,0 +1,276 @@
+--men
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3
+--year
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3
+
+---type
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4)
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4)
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4)
+
+---habitate
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=1 
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=3 
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=2 
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=1 
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=3
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=2 
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=1 
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=3 
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=2 
+
+---total
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2
+
+
+--------xjDan
+--men
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and xjEndangeredflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and xjEndangeredflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and xjEndangeredflag=1
+--year
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1 and xjEndangeredflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2 and xjEndangeredflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3 and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1 and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2 and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3 and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1 and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2 and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3 and xjEndangeredflag=1
+
+---type
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3 and xjEndangeredflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1 and xjEndangeredflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4) and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3 and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1 and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4) and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3 and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1 and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4) and xjEndangeredflag=1
+
+---habitate
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=1  and xjEndangeredflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=3  and xjEndangeredflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=2  and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=1  and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=3 and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=2  and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=1  and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=3  and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=2  and xjEndangeredflag=1
+
+---total
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and xjEndangeredflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and xjEndangeredflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and xjEndangeredflag=1
+
+select cnname from m_plant where id<7000 and culandwildflag=2 and xjEndangeredflag=1
+
+
+
+--------endemism
+--men
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and endemismflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and endemismflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and endemismflag=1
+--year
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1 and endemismflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2 and endemismflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3 and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1 and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2 and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3 and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1 and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2 and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3 and endemismflag=1
+
+---type
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3 and endemismflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1 and endemismflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4) and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3 and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1 and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4) and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3 and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1 and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4) and endemismflag=1
+
+---habitate
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=1  and endemismflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=3  and endemismflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=2  and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=1  and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=3 and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=2  and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=1  and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=3  and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=2  and endemismflag=1
+
+---total
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and endemismflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and endemismflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and endemismflag=1
+
+select cnname from m_plant where id<7000 and culandwildflag=2 and endemismflag=1
+
+--------ephemeral
+--men
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and ephemeralflag is not null
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and ephemeralflag is not null
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and ephemeralflag is not null
+
+select count(distinct(cngenus)) from m_plant where id<7000 and mencode=3 and ephemeralflag is not null
+--year
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1 and ephemeralflag is not null
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2 and ephemeralflag is not null
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3 and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1 and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2 and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3 and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=1 and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=2 and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and yearcode=3 and ephemeralflag is not null
+
+---type
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3 and ephemeralflag is not null
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1 and ephemeralflag is not null
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4) and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3 and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1 and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4) and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and typecode=3 and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and typecode=1 and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and (typecode=2 or typecode=4) and ephemeralflag is not null
+
+---habitate
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=1  and ephemeralflag is not null
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=3  and ephemeralflag is not null
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=2  and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=1  and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=3 and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=2  and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=1  and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=3  and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=2  and ephemeralflag is not null
+
+---total
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and ephemeralflag is not null
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and ephemeralflag is not null
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and ephemeralflag is not null
+
+select cnname from m_plant where id<7000 and culandwildflag=2 and ephemeralflag is not null
+
+
+--------halophilous
+--men
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and halophilousflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and halophilousflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=1 and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=2 and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag<>2 and mencode=3 and halophilousflag=1
+
+select cnname from m_plant where id<7000 and mencode=3 and halophilousflag=1 and culandwildflag=2 ---Ò°Å£²Ý¿âÖÐÎªÔÔÅà
+
+--year
+select count(distinct(cnname)) from m_plant where id<7000  and yearcode=1 and halophilousflag=1
+select count(distinct(cnname)) from m_plant where id<7000  and yearcode=2 and halophilousflag=1
+select count(distinct(cnname)) from m_plant where id<7000  and yearcode=3 and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and yearcode=1 and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000  and yearcode=2 and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000  and yearcode=3 and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000  and yearcode=1 and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000  and yearcode=2 and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000  and yearcode=3 and halophilousflag=1
+
+---type
+select count(distinct(cnname)) from m_plant where id<7000  and typecode=3 and halophilousflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and typecode=1 and halophilousflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and (typecode=2 or typecode=4) and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and typecode=3 and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and typecode=1 and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and (typecode=2 or typecode=4) and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and typecode=3 and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and typecode=1 and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and (typecode=2 or typecode=4) and halophilousflag=1
+
+select cnname from m_plant where id<7000 and culandwildflag<>2 and typecode=3 and halophilousflag=1
+
+---habitate
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=1  and halophilousflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=3  and halophilousflag=1
+select count(distinct(cnname)) from m_plant where id<7000 and culandwildflag=2  and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=1  and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=3 and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000 and culandwildflag=2  and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=1  and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=3  and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and culandwildflag=2  and halophilousflag=1
+
+---total
+select count(distinct(cnname)) from m_plant where id<7000  and halophilousflag=1
+select count(distinct(cngenus)) from m_plant where id<7000  and halophilousflag=1
+select count(distinct(cnfamily)) from m_plant where id<7000 and halophilousflag=1
+
+----animal
+select * from m_animal
+select count(distinct(cnname)) from m_animal where id<1000 
+select count(distinct(cnfamily)) from m_animal where id<1000 
+select count(distinct(cnorder)) from m_animal where id<1000
+select count(distinct(cnname)) from m_animal where id<1000  and endangeredflag=1
+select count(distinct(cnfamily)) from m_animal where id<1000 and endangeredflag=1
+select count(distinct(cnorder)) from m_animal where id<1000 and endangeredflag=1
+
+select count(distinct(cnname)) from m_animal where id>1000 
+select count(distinct(cnfamily)) from m_animal where id>1000 
+select count(distinct(cnorder)) from m_animal where id>1000
+select count(distinct(cnname)) from m_animal where id>1000  and endangeredflag=1
+select count(distinct(cnfamily)) from m_animal where id>1000 and endangeredflag=1
+select count(distinct(cnorder)) from m_animal where id>1000 and endangeredflag=1

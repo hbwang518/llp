@@ -1,0 +1,111 @@
+select distinct m_plant.cnName from m_plant, AreaToCounty, plantOnlyCounty, m_area
+where m_plant.ID=plantOnlyCounty.Plant_id and PlantOnlyCounty.county = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and m_area.area='À¥ÂØÉ½' and m_plant.id not in 
+(
+    select distinct m_plant.id from m_plant, AreaToCounty, plantOnlyCounty, m_area
+where m_plant.ID=plantOnlyCounty.Plant_id and PlantOnlyCounty.county = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and plantOnlyCounty.county not in (select AreaToCounty.County_Code from AreaToCounty, m_area where areaToCounty.area_id=m_area.id and m_area.area='À¥ÂØÉ½')
+)
+
+select distinct m_plant.cnName from m_plant, AreaToCounty, plantOnlyCounty, m_area
+where m_plant.ID=plantOnlyCounty.Plant_id and PlantOnlyCounty.county = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and m_area.area='À¥ÂØÉ½' and m_plant.id not in 
+(
+    select distinct m_plant.id from m_plant, AreaToCounty, plantOnlyCounty, m_area
+where m_plant.ID=plantOnlyCounty.Plant_id and PlantOnlyCounty.county = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and plantOnlyCounty.county not in (select AreaToCounty.County_Code from AreaToCounty, m_area where areaToCounty.area_id=m_area.id and m_area.area='À¥ÂØÉ½')
+)
+
+
+select distinct m_animal.cnName from m_animal, AreaToCounty, animalCounty, m_area
+where m_animal.ID>1000 and m_animal.ID=animalCounty.animal_id and animalCounty.distribution = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and m_area.area='ÌìÉ½' and m_animal.id not in 
+(
+    select distinct m_animal.id from m_animal, AreaToCounty, animalCounty, m_area
+where m_animal.ID=animalCounty.animal_id and animalCounty.distribution = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and animalCounty.distribution not in (select AreaToCounty.County_Code from AreaToCounty, m_area where areaToCounty.area_id=m_area.id and m_area.area='ÌìÉ½')
+)
+
+
+select distinct m_animal.cnName from m_animal, AreaToCounty, animalCounty, m_area
+where m_animal.ID>1000 and m_animal.ID=animalCounty.animal_id and animalCounty.distribution = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and m_area.area='°¢¶ûÌ©É½' and m_animal.id not in 
+(
+    select distinct m_animal.id from m_animal, AreaToCounty, animalCounty, m_area
+where m_animal.ID=animalCounty.animal_id and animalCounty.distribution = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and animalCounty.distribution not in (select AreaToCounty.County_Code from AreaToCounty, m_area where areaToCounty.area_id=m_area.id and m_area.area='°¢¶ûÌ©É½')
+)
+
+
+select distinct m_animal.cnName from m_animal, AreaToCounty, animalCounty, m_area
+where m_animal.ID<1000 and m_animal.ID=animalCounty.animal_id and animalCounty.distribution = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and m_area.area='ÌìÉ½' and m_animal.id not in 
+(
+    select distinct m_animal.id from m_animal, AreaToCounty, animalCounty, m_area
+where m_animal.ID=animalCounty.animal_id and animalCounty.distribution = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and animalCounty.distribution not in (select AreaToCounty.County_Code from AreaToCounty, m_area where areaToCounty.area_id=m_area.id and m_area.area='ÌìÉ½')
+)
+
+
+select distinct m_animal.cnName from m_animal, AreaToCounty, animalCounty, m_area
+where m_animal.ID<1000 and m_animal.ID=animalCounty.animal_id and animalCounty.distribution = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and m_area.area='°¢¶ûÌ©É½' and m_animal.id not in 
+(
+    select distinct m_animal.id from m_animal, AreaToCounty, animalCounty, m_area
+where m_animal.ID=animalCounty.animal_id and animalCounty.distribution = areaToCounty.County_Code and areaToCounty.area_id=m_area.id
+and animalCounty.distribution not in (select AreaToCounty.County_Code from AreaToCounty, m_area where areaToCounty.area_id=m_area.id and m_area.area='°¢¶ûÌ©É½')
+)
+
+
+
+select * from m_plant where cnname = 'ÒøÒ¶Ýï'
+select * from m_plant where cnname = 'Ï²ÂíÀ­ÑÅÕëÃ©'
+select * from m_plant where cnname = 'ÐãÀöË®°ØÖ¦'
+select * from m_plant where cnname = '°¢¿ËÌÕ³ÝÔµ²Ý'
+select * from m_plant where cnname = '´óÒ¶±¨´º'
+select * from m_plant where cnname = 'µæ×´»¢¶ú²Ý'
+select * from m_plant where cnname = '·ÆÊÏÁø'
+select * from m_plant where cnname = 'ºúÑî'
+select * from m_plant where cnname = 'Î÷²®ÀûÑÇÀäÉ¼'
+select * from m_plant where cnname = 'Î÷²®ÀûÑÇÔÆÉ¼'
+select * from m_plant where cnname = 'Î÷²®ÀûÑÇºìËÉ'
+select * from m_plant where cnname = 'ÐÂ½®°¢Îº'
+select * from m_plant where cnname like '%±´Ä¸'
+select * from m_plant where cnname like '%ÜÊÈØ'
+select * from m_plant where cnname = 'ÐÂ½®Ò°Æ»¹û'
+select * from m_plant where cnname = 'Ó£ÌÒÀî'
+select * from m_plant where cnname = 'Å·ÖÞ³íÀî'
+select * from m_plant where cnfamily = '¶¹¿Æ' and xjendangeredflag = 1
+select * from m_plant where cnfamily = 'ÝðÞ¼¿Æ' and xjendangeredflag = 1
+select * from m_plant where cnfamily = 'ÝÀ²Ë¿Æ' and xjendangeredflag = 1
+select * from m_plant where xjendangeredflag = 1
+select * from m_plant where cnname = 'ÌìÉ½éÊ'
+select * from m_plant where cnname = 'ÌìÉ½Èí×Ï²Ý'
+select * from m_plant where cnname = '°×ËóËó'
+select * from m_plant where cnname like '%ËóËó%'
+select * from m_plant where cnfamily = 'Þ¼¿Æ'
+select * from m_plant where cnfamily = '¾Õ¿Æ'
+select * from m_plant where cnfamily = '¶¹¿Æ'
+select * from m_plant where cnfamily = 'ºÌ±¾¿Æ'
+
+
+
+select * from m_animal where cnname = '°×ÑüÓêÑà'
+select * from m_animal where cnname = 'ËÉ¼¦'
+select * from m_animal where cnname = 'Ð¡°ß×ÄÄ¾Äñ'
+select * from m_animal where cnname = '»Ò¸¹»ÒÈ¸'
+select * from m_animal where cnname = '¶Ì×ìÌì¶ì'
+select * from m_animal where cnname = 'ºìÐØûa'
+select * from m_animal where cnname = 'À¶í¶ð´'
+select * from m_animal where cnname = '×Ø¸¹ÁøÝº'
+select * from m_animal where endangeredflag=1
+select * from m_animal where id<1000
+select * from m_animal where cnname = '³¤Î²ÁÖû^'
+select * from m_animal where cnname = '»¨Î²é»¼¦'
+select * from m_animal where cnname = 'ÁøÀ×Äñ'
+select * from m_animal where cnname = '³¤¶úû^'
+select * from m_animal where cnname = 'È¸Ó¥'
+
+select * from m_animal where cnfamily = 'Ã¨¿Æ'
+select * from m_animal where cnfamily = 'ÍÃ¿Æ'
+select * from m_animal where cnfamily = '÷ø¿Æ'

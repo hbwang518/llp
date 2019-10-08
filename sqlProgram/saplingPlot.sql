@@ -1,0 +1,21 @@
+
+saplingÑù·½
+select * from arbor where plotno = '20070902-2'
+select * from arbor where plotno = '20070902-2'
+select * from arbor where plotno = '20070902-1'
+select * from arbor where plotno = '20070901-1'
+select * from arbor where plotno = '20070907-4'
+select * from arbor where plotno = '20070824-5'
+select * from arbor where plotno = '20070824-4'
+select * from arbor where plotno = '20070828-1'
+select * from arbor where plotno = '20070825-1'
+select * from arbor where plotno = '20070825-2'
+select * from arbor where plotno = '20070824-3'
+select * from arbor where plotno = '20070808-4'
+select * from arbor where plotno = '20070805-3'
+select * from arbor where plotno = '20070806-1'
+select * from arbor where plotno = '20070805-1'
+select * from arbor where plotno = '20070805-2'
+select * from arbor where plotno = '20070731-1'
+select * from arbor where plotno = '20070801-1'
+
