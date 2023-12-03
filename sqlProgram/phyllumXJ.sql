@@ -409,7 +409,7 @@ select * from XJ
 select speciesid, STRING_SPLIT(county, '、') from XJ
 SELECT Value FROM STRING_SPLIT('Lorem ipsum dolor sit amet.', ' ');
 
-SELECT distinct speciesid, value
+SELECT distinct speciesid, value county0
 into xjCounty
 FROM XJ
     CROSS APPLY STRING_SPLIT(county, '、');
@@ -418,4 +418,6 @@ select * from xjcounty order by speciesid
 
 select * from m_county
 
-select distinct()
+select distinct(county0) from xjcounty
+
+

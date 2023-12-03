@@ -1,4 +1,10 @@
 ﻿
+select * from specimengrasslandXJN
+
+select * from m_plant
+
+
+
 select * from plantlonlat a, m_plant b where a.plant_id =b.id order by a.gridcount
 
 select * from environment

@@ -1,3 +1,10 @@
+
+select * from mediInfo where detailSpecies=1
+
+select * from redfu   ----傅立国书cfh记载是102科380种，本库是310种
+select * from prolist12  ---本库1900种
+select * from mediprolist   --本库76种
+
 --medi
 select * from animalXJ
 select * from mclass    ###mclass.id= mfamily.classid
@@ -28,22 +35,27 @@ select * from allType
 select * from county2007 where county like '%重庆%'order by province
 select * from countyPlant
 select * from distribution
+select distinct cnname from distribution
 select * from evaOri
 select * from evaProv
-select * from List
+select * from evaPlant
+select * from List where descr = 4
 select * from List1
-select * from m_mediRed
+select * from m_mediRed where cnname like '%淫羊藿'
 select * from qin1101
 select * from score
 select * from scoreResult order by id
 select * from mediInfo where 致危因子 is not null or 保护建议 is not null
 select * from addInfo where 致危因子 is not null or 保护建议 is not null
 select * from mediInfo order by 中文科名
-select * from mediInfo where detailSpecies=1
+select * from mediInfo where detailspecies =1 order by id
+select * from mediInfo where descr=1
+
 select * from arbor
 select * from shrubAndGrass
 select * from environment
 select * from plantBJ
+select * from gardencas
 
 select * from distribution
 select * from deleteCounty
@@ -56,7 +68,7 @@ select * from mediInfo where cnName like '%林荫银莲花%'
 
 ##mediPart##
 select *, SUBSTRING(d.code, LEN(d.code)-1, 2) from medi.dbo.mMedi d
-
+select * from alltype
 
 
 338 - 312 26-- 369 
@@ -941,12 +953,13 @@ select *  from gardenMedi0
 select *  from gardenMedi
 
 select * from gardenCas
+select distinct (cnname) from garden
 
 --select top 0 * into garden from gardenCas0
 
 福建、广东、广西、贵州、江西、四川、台湾、云南、浙江
 
-
+select * from ecotype
 
 select * from listQin20150428 where autoid not in (
 select distinct(b.autoId) from gardenCas0 a, listQin20150428 b where a.cnName = b.cnName or a.latinName=b.latinName
@@ -1135,7 +1148,7 @@ from mediInfo, classify a where mediInfo.cnName=a.cnName
 select ecoType1, count(distinct(cnFamily)), count(distinct(cnGenus)), count(distinct(cnName)) from mediINfo where detailSpecies = 1  group by ecoType1 
 select ecoType2, count(distinct(cnFamily)), count(distinct(cnGenus)), count(distinct(cnName)) from mediINfo where detailSpecies = 1  group by ecoType2 
 select ecoType3, count(distinct(cnFamily)), count(distinct(cnGenus)), count(distinct(cnName)) from mediINfo where detailSpecies = 1  group by ecoType3 
-
+select * from mediinfo
 
 ------科属种-----------------
 ##各濒危等级物种数##  preface已有
@@ -1244,7 +1257,7 @@ select * from ecoType
 from mediInfo b, ecoType a where b.cnName=a.cnName or a.latinName=b.latinName
 
 select b.* from proList12 a, medi.dbo.mpam b where a.cnName=b.cnName or a.latinName=b.latinName
-
+select * from redfu
 select * from mediProList
 Panthera tigris Linnaeus
 update mediProList set latinNameOri=ltrim(rtrim(latinNameOri))
@@ -1579,7 +1592,7 @@ union
 select distinct cnName, latinName from distributionAdd20181110
 
 
-insert into distribution (cnName, latinName, county, countycode,province) 
+--insert into distribution (cnName, latinName, county, countycode,province) 
 select a.cnName, a.latinName, a.county, b.countycode, b.province 
 from distributionAdd20190722 a join county2007 b on a.county = b.county
 where cnName not in (select cnName from distribution)
@@ -1596,7 +1609,7 @@ from distributionAdd20190722 a join county2007 b on a.county = b.county
 group by county having count(*) > 1
 ) 
 
-update distributionAdd20190722 set countyCode=bb.countycode 
+--update distributionAdd20190722 set countyCode=bb.countycode 
 
 from distributionAdd20190722 aa , 
 (
@@ -1686,6 +1699,8 @@ from distributionAdd20181110 a join county2007 b
 on a.county=b.county
 where cnName not in (select cnName from distribution)
 
+
+
 select distinct b.county
 from distributionAdd20181110 a join county2007 b 
 on a.county=b.county
@@ -1749,13 +1764,648 @@ where a.county=b.county and
 a.cnName in ('冬虫夏草','大叶骨碎补','卷柏','宽叶羌活','当归','白术','淫羊藿','巫山淫羊藿','降香','川赤芍','芍药','乌头','金莲花','川黄檗','千里香','玄参','黄山药','假百合','滇重楼','发菜','篦子三尖杉','三七','姜状三七','月腺大戟','桑寄生','三分三','赛莨菪','泡囊草','新疆贝母')
 order by a.autoId
 
-select county
-from distribution where cnName in ('冬虫夏草') and county in ('阿坝县','松潘县','小金县','丁青县','洛隆县','芒康县','德钦县','迭部县','玛曲县','夏河县','巴塘县','白玉县','德格县','康定县','石渠县','乡城县','雅江县','班玛县','达日县','甘德县','玛沁县','刚察县','门源回族自治县','祁连县','互助土族自治县','化隆回族自治县','贵德县','贵南县','同德县','兴海县','天峻县','河南蒙古族自治县','城关区','达孜县','当雄县','墨竹工卡县','玉龙纳西族自治县','察隅县','林芝县','米林县','比如县','那曲县','聂拉木县','大通回族土族自治县','湟源县','湟中县','曲麻莱县','玉树县','杂多县','共和县')
+select distinct(descr) from distribution
+select * from distribution
+
+select county 
+from distribution a where cnName in ('冬虫夏草') and county in ('阿坝县','松潘县','小金县','丁青县','洛隆县','芒康县','德钦县','迭部县','玛曲县','夏河县','巴塘县','白玉县','德格县','康定县','石渠县','乡城县','雅江县','班玛县','达日县','甘德县','玛沁县','刚察县','门源回族自治县','祁连县','互助土族自治县','化隆回族自治县','贵德县','贵南县','同德县','兴海县','天峻县','河南蒙古族自治县','城关区','达孜县','当雄县','墨竹工卡县','玉龙纳西族自治县','察隅县','林芝县','米林县','比如县','那曲县','聂拉木县','大通回族土族自治县','湟源县','湟中县','曲麻莱县','玉树县','杂多县','共和县')
 group by county having count(*) > 1
-order by a.county,
+order by a.county
 
 select b.county
 from distribution a, county2007 b
 where a.county=b.county and 
 a.cnName in ('冬虫夏草')
 group by b.county having count(*) > 1
+
+
+select distinct(a. wordno), a.cnname from describedspeciesqin20200212 a, distribution b where (a.cnname = b.cnname) or (a.latinname=b.latinname) order by a. wordno
+
+select distinct (descr) from distribution
+select * from distribution where (descr is null or descr='添加') 
+
+辽细辛-北细辛
+select * from distribution where (descr is null or descr='添加') and cnname like '%细辛%'
+
+银柴胡
+select * from distribution where (descr is null or descr='添加') and cnname like '%柴胡%'
+
+select * from distribution where (descr is null or descr='添加') and cnname like '%龙血树%'
+
+select * from distribution where (descr is null or descr='添加') and cnname like '%五味子%'
+
+select * from distribution where (descr is null or descr='添加') and cnname like '%大戟%'
+
+select * from list where cnname like '%龙血树%'
+select * from list where cnname like '%银柴胡%'
+select * from list where cnname like '%黄耆%'
+select * from county2007 where province like '%江西%'
+select * from distribution where cnname like '%内南五味子%'
+select * from distribution where descr='添加'
+
+select a.autoid, a.cnName, a.latinName, b.* 
+from distribution a join county2007 b 
+on a.county=b.county
+where a.cnName like '%内南五味子%' order by a.autoid
+
+select * from county2007
+
+
+
+select * from reddistribution20200307
+select province, count(distinct(cnname)) from reddistribution20200307 group by province order by province
+
+select distinct(cnname) from reddistribution20200307
+
+select * from _countyCordyceps
+
+select * from allType
+select * from distributionAdd20190722 where latinname like '%Astragalus %'
+
+select * from reddistribution20200307 where latinname like '%Astragalus %'
+
+select * from reddistribution20200307 where latinname like '%Taxillus %'
+
+
+
+
+
+
+-----20201218-------
+select * from county2007
+select * from countyaddraw
+select * from countychecking
+select * from countymodify
+select * from provincechecking
+
+
+
+2022.0211
+select * from red2022 order by status2022
+
+
+
+select* from m_medired
+
+select* from evaplant
+
+select cnname, count(distinct(province)) a from distribution group by cnname order by a desc
+
+select cnname, count(distinct(county)) a from distribution group by cnname order by a desc
+
+---Tarim
+select * from TarimXJ
+
+select * from red2022 a,TarimXJ b where a.latinName=b.latinName or a.cnName=b.cnName
+
+select b.* from red2022 a,TarimXJ b where b.latinName not in (select ) or b.cnName
+
+select b.*, a.* from TarimXJ b left join red2022 a on a.latinName=b.latinName or a.cnName=b.cnName order by b.NoLai
+select b.*, a.* from TarimXJ2 b left join red2022 a on a.latinName=b.latinName or a.cnName=b.cnName order by b.NoLai
+select b.*, a.* from TarimXJ3 b left join red2022 a on a.latinName=b.latinName  order by b.NoLai
+
+
+select * from red2022 a, speciesRichnessXinJiang.dbo.m_plant b where a.latinName=b.latinName or a.cnName=b.cnName
+select * from TarimXJ a, speciesRichnessXinJiang.dbo.m_plant b where a.latinName=b.latinName or a.cnName=b.cnName
+
+select * from m_plant20191008
+select * from m_plant where endangeredflag is not null or xjendangeredflag is not null or endemismflag is not null
+
+select * from TarimXJ2
+select * from red2022 where cnname like '%变种%'
+
+
+
+
+---RLI:count不同级别物种数
+-- LC=0, NT=1, VU=2, EN=3, CR=4, EW=5, EX=5, RE=5
+
+
+  --2022种子植物，除去2013灭绝物种
+select status2022, count(*) from red2022
+where status2022 is not null and status2013 is not null and (kingdom = 3 or kingdom = 4)
+and status2022 !='DD' and status2013 != 'DD' and status2013 != 'RE' and status2013 != 'EX' and status2013 != 'EW'
+group by status2022
+
+  --2013种子植物，除去2013灭绝物种
+select status2013, count(*) from red2022
+where status2022 is not null and status2013 is not null and (kingdom = 3 or kingdom = 4)
+and status2022 !='DD' and status2013 != 'DD' and status2013 != 'RE' and status2013 != 'EX' and status2013 != 'EW'
+group by status2013
+
+
+
+
+
+
+select status2022Num - status2013Num a, * from red2022 where abs(status2013Num-status2022Num)>1 order by a
+
+
+--##统计科属种
+select * from red2022 where status2022 = 'na'
+select * from red2022 where status2022='CR' or status2022='EN' or status2022='VU'
+select * from red2022 where latinname like '%Woodwardia%'
+select status2022, count(*) from red2022 group by status2022
+select status2022, kingdom, count(*) from red2022 group by status2022, kingdom order by status2022, kingdom
+select kingdom, count(*) from red2022 group by kingdom order by kingdom
+
+
+
+--2022
+select kingdom, count(distinct(latinFamily)),count(distinct(latinGenus)),count(distinct(latinName)) 
+from red2022 group by kingdom
+select kingdom, count(distinct(latinFamily)),count(distinct(latinGenus)),count(distinct(latinName)) 
+from red2022 where (status2022='CR' or status2022='EN' or status2022='VU') group by kingdom
+--2022&2013
+select kingdom, count(distinct(latinFamily)),count(distinct(latinGenus)),count(distinct(latinName)) 
+from red2022 where status2022 is not null and status2013 is not null group by kingdom
+select kingdom, count(distinct(latinFamily)),count(distinct(latinGenus)),count(distinct(latinName)) 
+from red2022 where status2022 is not null and status2013 is not null and (status2022='CR' or status2022='EN' or status2022='VU') group by kingdom
+--endemism
+select kingdom, count(distinct(latinFamily)),count(distinct(latinGenus)),count(distinct(latinName)) 
+from red2022 
+where status2013 is not null and status2022 is not null and endemism = 1 and (status2022='CR' or status2022='EN' or status2022='VU')
+group by kingdom
+
+--大表
+select kingdom,status2022, count(distinct(latinFamily)),count(distinct(latinGenus)),count(distinct(latinName)) 
+from red2022 
+where status2013 is not null and status2022 is not null
+group by kingdom,status2022
+
+
+
+--##海拔计算
+select distinct lowAltitude, highAltitude from red2013 order by lowAltitude
+select * from red2013 where lowAltitude=7000 and highAltitude=1500
+select * from red2022 a join red2013 b on a.latinName=b.latinName
+
+--update red2013 set lowAltitude=null, highAltitude=null where lowAltitude > 8000
+--update red2013 set highAltitude=null where lowAltitude=7000 and highAltitude=1500
+
+select ID, lowAltitude, highAltitude,[FOC海拔(整)],[FOC海拔(原)] 
+from red2013 where lowAltitude>highAltitude
+
+--all
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013 where lowAltitude is not null and highAltitude is not null
+) and (status2022='CR' or status2022='EN' or status2022='VU')  
+group by kingdom
+
+--0-1000
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013 
+	where lowAltitude <= 1000
+	and lowAltitude is not null and highAltitude is not null
+) and (status2022='CR' or status2022='EN' or status2022='VU')  
+group by kingdom
+
+--1000-2000
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013 
+	where (lowAltitude <= 1000 and highAltitude > 1000) or (lowAltitude > 1000 and lowAltitude <= 2000)
+	and lowAltitude is not null and highAltitude is not null
+) and (status2022='CR' or status2022='EN' or status2022='VU') 
+group by kingdom
+
+--2000-3000
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013  where (lowAltitude <= 2000 and highAltitude > 2000) or (lowAltitude > 2000 and lowAltitude <= 3000)
+	and lowAltitude is not null and highAltitude is not null
+) and (status2022='CR' or status2022='EN' or status2022='VU') 
+group by kingdom
+
+--3000-4000
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013  where (lowAltitude <= 3000 and highAltitude > 3000) or (lowAltitude > 3000 and lowAltitude <= 4000)
+	and lowAltitude is not null and highAltitude is not null
+) and (status2022='CR' or status2022='EN' or status2022='VU') 
+group by kingdom
+
+
+--4000
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013  where highAltitude > 4000
+	and lowAltitude is not null and highAltitude is not null
+) and (status2022='CR' or status2022='EN' or status2022='VU') 
+group by kingdom
+
+
+--中值海拔
+--update red2013 set meanAltitude =(lowAltitude+highAltitude)/2 where lowAltitude is not null and highAltitude is not null
+
+--all 
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013 where meanAltitude is not null
+) and (status2022='CR' or status2022='EN' or status2022='VU')  
+group by kingdom
+
+--0-1000
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013 
+	where meanAltitude <= 1000
+) and (status2022='CR' or status2022='EN' or status2022='VU')  
+group by kingdom
+
+--1000-2000
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013 
+	where meanAltitude > 1000 and meanAltitude <= 2000
+) and (status2022='CR' or status2022='EN' or status2022='VU') 
+group by kingdom
+
+--2000-3000
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013 where meanAltitude > 2000 and meanAltitude <= 3000
+) and (status2022='CR' or status2022='EN' or status2022='VU') 
+group by kingdom
+
+--3000-4000
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013 where meanAltitude > 3000 and meanAltitude <= 4000
+) and (status2022='CR' or status2022='EN' or status2022='VU') 
+group by kingdom
+
+--4000
+select kingdom, count(distinct(latinFamily)), count(distinct(latinGenus)), count(distinct(latinName)) from red2022 where latinName in (
+	select latinName from red2013  where meanAltitude > 4000
+) and (status2022='CR' or status2022='EN' or status2022='VU') 
+group by kingdom
+
+
+
+select * from red2022 where kingdom = 3 or  kingdom = 4
+
+
+---国际库
+
+
+select case when charindex('.', threats) > 0 then left(threats,charindex('.', threats)-1) else threats end
+from red2022threat where threats is not null where iduni=23725
+
+select charindex('.', charindex('.', threats)) from red2022threat where iduni=23725
+
+
+
+
+select * from red2013 where cnname like '%乳源槭%'
+
+
+select * from red2022full
+
+
+
+
+
+
+
+
+
+
+
+
+--province
+select * from red2013province order by speciesid
+select * from red2022 where id2013 is not null order by id2013
+select * from red2013 order by id
+where latinname like "%Cornus schindleri%"
+
+
+select * from red2022 
+select * from red2013 
+
+--update red2022 set ID2013=b.ID from red2022 a, red2013 b where a.latinName=b.latinName
+
+select b.ID from red2022 a, red2013 b where a.latinName=b.latinName
+select b.ID from red2022 a, red2013 b where a.cnname =b.cnname
+
+
+select a.province, count(*), count(distinct(latinGenus)),count(distinct(latinFamily)) 
+from red2013province a join red2022 b on a.speciesID=b.ID2013
+group by a.province
+
+select a.province,b.status2022, count(*), count(distinct(latinGenus)),count(distinct(latinFamily)) 
+from red2013province a join red2022 b on a.speciesID=b.ID2013
+group by a.province, b.status2022
+
+select a.province,b.status2022, count(*)
+from red2013province a join red2022 b on a.speciesID=b.ID2013
+where b.status2022='CR'
+group by a.province, b.status2022
+
+
+
+--BGCI tree
+select * from endemictreeBGCI
+select * from endemictreeBGCI a, red2022 b where a.latinname= b.latinname
+select * from endemictreeBGCI a left join red2022 b on a.latinname= b.latinname order by a.autoid
+--select * from endemictreeBGCI a, red2013 b where a.latinname= b.latinname
+
+
+
+
+
+
+
+
+
+
+select * from red2022 where status2022Num is null and status2022 is not null and status2022 !='DD'
+select distinct(latinname) from red2022
+select * from classify
+select * from alltype
+select * from redLocationDic
+
+select latinName, SUBSTRING(latinName, 0 , charIndex(' ', latinName)) from red2022 
+--update red2022 set latinGenus=SUBSTRING(latinName, 0 , charIndex(' ', latinName))
+--LC=0, NT=1, VU=2, EN=3, CR=4, EW=5, EX=5, RE=5
+/*
+update red2022 set status2022Num=0 where status2022='LC'
+update red2022 set status2022Num=1 where status2022='NT'
+update red2022 set status2022Num=2 where status2022='VU'
+update red2022 set status2022Num=3 where status2022='EN'
+update red2022 set status2022Num=4 where status2022='CR'
+update red2022 set status2022Num=5 where status2022='EW'
+update red2022 set status2022Num=5 where status2022='EX'
+update red2022 set status2022Num=5 where status2022='RE'
+*/
+
+/*
+update red2022 set status2013Num=0 where status2013='LC'
+update red2022 set status2013Num=1 where status2013='NT'
+update red2022 set status2013Num=2 where status2013='VU'
+update red2022 set status2013Num=3 where status2013='EN'
+update red2022 set status2013Num=4 where status2013='CR'
+update red2022 set status2013Num=5 where status2013='EW'
+update red2022 set status2013Num=5 where status2013='EX'
+update red2022 set status2013Num=5 where status2013='RE'
+*/
+select * from red2022 where status2013Num is null and status2013 is not null and status2013 !='DD'
+
+select distinct(statusiucn) from ChinaIUCN_assessments
+/*
+update ChinaIUCN_assessments set statusIUCNnum=0 where statusiucn='LC'
+update ChinaIUCN_assessments set statusIUCNnum=1 where statusiucn='NT'
+update ChinaIUCN_assessments set statusIUCNnum=2 where statusiucn='VU'
+update ChinaIUCN_assessments set statusIUCNnum=3 where statusiucn='EN'
+update ChinaIUCN_assessments set statusIUCNnum=4 where statusiucn='CR'
+update ChinaIUCN_assessments set statusIUCNnum=5 where statusiucn='EX'
+update ChinaIUCN_assessments set statusIUCNnum=5 where statusiucn='EW'
+update ChinaIUCN_assessments set statusIUCNnum=5 where statusiucn='RE'
+*/
+select * from ChinaIUCN_assessments where statusIUCNnum is null and statusiucn is not null and statusiucn !='DD'
+
+
+
+select distinct(statusiucn0) from ChinaIUCN_assessments
+/*
+update ChinaIUCN_assessments set statusIUCN='LC' where statusIUCN0='Least Concern'
+update ChinaIUCN_assessments set statusIUCN='NT' where statusIUCN0='Lower Risk/near threatened'
+update ChinaIUCN_assessments set statusIUCN='LC' where statusIUCN0='Lower Risk/least concern'
+update ChinaIUCN_assessments set statusIUCN='EX' where statusIUCN0='Extinct'
+update ChinaIUCN_assessments set statusIUCN='DD' where statusIUCN0='Data Deficient'
+update ChinaIUCN_assessments set statusIUCN='NT' where statusIUCN0='Near Threatened'
+update ChinaIUCN_assessments set statusIUCN='CR' where statusIUCN0='Critically Endangered'
+update ChinaIUCN_assessments set statusIUCN='VU' where statusIUCN0='Vulnerable'
+update ChinaIUCN_assessments set statusIUCN='LC' where statusIUCN0='Lower Risk/conservation dependent'
+update ChinaIUCN_assessments set statusIUCN='EN' where statusIUCN0='Endangered'
+update ChinaIUCN_assessments set statusIUCN='EW' where statusIUCN0='Extinct in the Wild'
+*/
+
+
+/*
+select kingdom,count(*) from red2022 group by kingdom
+update red2022 set kingdom='3' where kingdom='3-裸子植物'
+update red2022 set kingdom='2' where kingdom='2-蕨类植物'
+update red2022 set kingdom='1' where kingdom='1-苔藓植物'
+update red2022 set kingdom='4' where kingdom='4-被子植物'
+
+select * from red2013
+select kingdom,count(*) from red2013 group by kingdom order by kingdom
+update red2013 set kingdom='3' where kingdom='3裸子'
+update red2013 set kingdom='2' where kingdom='2蕨类'
+update red2013 set kingdom='1' where kingdom='1苔藓'
+update red2013 set kingdom='4' where kingdom='4被子'
+*/
+
+
+
+
+
+select distinct(status2022) from red2022
+select distinct(status2013) from red2022
+select * from red2022 where status2013 like '%LC CR RARE%'
+select * from red2022 where status2013 like '%NT?%'
+
+
+
+select a.*, b.status2013 from red2022 a, red2013 b where a.cnname =b.cnname or a.latinname =b.latinname
+
+--update red2013 set latinName=[种名]+' '+isnull([种下名],'')
+
+
+select latinName,[种名],[种下名] from red2013
+
+--update red2022 set status2013 = b.status2013 
+from red2022 a, red2013 b where  a.latinname =b.latinname
+
+
+select a.status2013, b.status2013 from red2022 a, red2013 b 
+where a.latinname =b.latinname
+
+select a.status2013, b.status2013 from red2022 a, red2013 b 
+where a.cnname =b.cnname or a.latinname =b.latinname
+
+select cnName, count(*) from red2022 group by cnName having count(*) > 1
+select * from red2022 where cnname like '%白睫藓%'
+select * from red2022 where cnname like '%闭蒴拟牛毛藓%'
+select * from red2022 where cnname like '%波叶片叶苔%'
+
+select cnname, category2022 from red2022 group by cnName, category2022 having count(cnname) > 1 order by cnname
+
+select * from red2022 
+where cnName in (select cnName from red2022 group by cnName having count(*) > 1)
+order by cnName
+
+--选是否有拉丁名重复的
+select * from red2022 
+where latinname in (select latinname from red2022 group by latinname having count(*) > 1)
+order by latinname
+
+select * from red2013 
+where latinname in (select latinname from red2013 group by latinname having count(*) > 1)
+order by latinname
+
+select * from red2013 
+where cnName in (select cnName from red2022 group by cnName having count(*) > 1)
+order by cnName
+
+--delete red2022 where id in (38071,22294,22626)
+--select * into red2022Ori from red2022
+--select * into red2013Ori from red2013
+
+select * from red2022 where [13中文名配比] is not null
+
+select a.latinName, a.cnName, a.status2013, b.status2013 
+from red2022 a join red2013 b on (a.cnName=b.cnName or a.latinName=b.latinName) and substring(a.status2013,1, 2) != b.status2013
+
+select a.status2013, substring(a.status2013,1, 2) from red2022 a
+
+select * from red2022 where latinname like '%Aldrovanda vesiculosa%'
+
+select * from red2022 where endemism is not null
+select distinct(kingdom) from red2022
+select * from red2013 where id =6872
+select * from red2013 where lowaltitude is not null and highaltitude is not null
+select * from red2013 where lowaltitude like '%2900%'
+select * from red2013 where highaltitude = 0
+select distinct(status2013) from red2013
+select * from red2022 where '13中文名配比' is not null
+
+select * from red2022 where latinname in (select latinname from red2013)
+select * from red2022 where status2013 is not null
+select * from red2022 where (status2022='DD' or status2013='DD') or (status2022 is null or status2013 is null)
+
+
+
+select * from red2013 where lowAltitude like '%以下%'
+select * from red2013 where highAltitude like '%以下%'
+update red2013 set lowAltitude=0, highAltitude=1500 where ID=18225
+select * from red2013 where lowAltitude =0 and highAltitude<>0
+select * from red2013 where highAltitude =0 and lowAltitude<>0
+update red2013 set lowAltitude=0, highAltitude=1000 where ID=24348
+select * from red2013 where highAltitude =0 and lowAltitude=0
+update red2013 set lowAltitude=null, highAltitude=null where highAltitude =0 and lowAltitude=0
+select endemism0,count(*) from red2022 group by endemism0
+update red2022 set endemism=0 where endemism0 is null
+update red2022 set endemism=1 where endemism0 is not null
+
+
+
+
+select * from red2022
+select cnFamily,latinGenus, kingdom, status2022,count(*) from red2022 
+group by cnFamily,latinGenus, kingdom, status2022
+order by cnFamily,latinGenus, kingdom, status2022
+
+select cnFamily, kingdom, status2022,count(*) from red2022 
+where status2022='DD'
+group by cnFamily, kingdom, status2022
+order by cnFamily, kingdom, status2022
+
+
+
+select * from red2022 where status2013 is not null
+select * from red2022ori
+select * from red2022 where status2013 is null and status2013_0 is not null
+--update red2022 set status2013=substring(status2013_0,1,2) 
+where status2013 is null and status2013_0 is not null
+select * from red2022 where endemism is not null
+
+select * from red2022 a join red2013 b on a.latinName=b.latinName
+and a.status2013=b.status2013
+and a.status2013 is not null and b.status2013 is not  null
+
+select a.status2013,b.status2013 from red2022 a join red2013 b on a.latinName=b.latinName
+where a.status2013!=b.status2013
+or (a.status2013 is null or b.status2013 is null)
+
+select * from red2022 
+where status2013 != substring(status2013_0,1,2)
+and status2013_0 is not null 
+
+
+
+select a.ID, a.latinName, b.latinName 
+from ChinaIUCN_assessments a 
+left join red2013 b on a.latinName = b.latinName
+
+select a.ID, a.latinName, b.latinName 
+from ChinaIUCN_assessments a 
+left join red2022 b on a.latinName = b.latinName
+
+select a.ID, a.latinName, b.latinName 
+from ChinaIUCN_assessments a 
+left join red2022 b on a.latinName = b.latinName
+left join red2013 c on a.latinName = c.latinName
+
+select * from red2013 where latinName not in (select latinname from red2022)
+
+select a.id, a.latinname, a.statusiucn, a.categoryiucn,b.*, c.status2013, c.category2013
+,case when b.status2013 is not null then b.status2013 else c.status2013 end as status2013Merge
+,case when b.category2013 is not null then b.category2013 else c.category2013 end as category2013Merge
+,case when b.status2013num is not null then b.status2013num else c.status2013num end as status2013numMerge
+from ChinaIUCN_assessments a 
+left join red2022 b on a.latinName = b.latinName
+left join red2013 c on a.latinName = c.latinName
+order by a.id
+
+select a.latinname, a.statusiucn, b.status2022, b.category2022, c.status2013, c.category2013
+from ChinaIUCN_assessments a 
+left join red2022 b on a.latinName = b.latinName
+left join red2013 c on a.latinName = c.latinName
+where a.statusiucn != b.status2022 and a.statusiucn != c.status2013
+order by a.id
+
+
+
+select a.*, b.status2022, b.category2022, c.status2013, c.category2013
+,a.statusIUCNNum-b.status2022Num, a.statusIUCNNum-b.status2013Num
+from ChinaIUCN_assessments a 
+left join red2022 b on a.latinName = b.latinName
+left join red2013 c on a.latinName = c.latinName
+--where a.statusiucn = b.status2022 or a.statusiucn = c.status2013
+order by a.id
+
+
+select * from red2022 where latinname like '%Quercus marlipoensis%'
+select * from red2013 where latinname like '%Quercus marlipoensis%'
+
+
+select category2013, [标准], [珍稀_傅LK], [Ⅰ批+Ⅱ批]  from red2013
+select *  from red2013 where [Ⅰ批+Ⅱ批] is not null
+select category2013, [标准] from red2013 where category2013 is not null or [标准] is not null
+select category2013, [标准] from red2013 where [标准] is not null
+
+
+
+
+select *  from red2013ori where [★标准] is not null
+select *  from red2013ori where [标准(备份-121201)] is not null
+select *  from red2013ori where [◎标准backup] is not null
+
+select a.latinName, a.category2013, b.[◎标准backup] 
+from red2013 a join red2013ori b on a.latinName=b.latinName and a.category2013 <> b.[◎标准backup]
+--update red2013 set category2013=[标准]
+
+
+
+
+
+
+select '云南' as provinceName, status2013,count(*) as plantCount from red2013
+where province like '%云南%'
+group by status2013
+
+
+
+
+
+select * from red2013 where latinname = 'Abelia forrestii'
+
+select recordid, count(autoid) from red2013threat group by recordid order by count(autoid) 
+
+select top 3 * from red2013province0
+--select * from redcategoryprovince
+select * from redlocationdic
+select count(*) from red2013province0
+
+select a.autoID, a.speciesID, a.latinName, b.province 
+into red2013province
+from red2013province0 a join redlocationdic b on a.province0=b.province0 and b.province is not null
+select count(*) from red2013province0 a join redlocationdic b on a.province0=b.province0 and b.province is not null
+
+select * from red2013province
+
+select * from red2022
+

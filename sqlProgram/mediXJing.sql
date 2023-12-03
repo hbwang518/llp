@@ -294,3 +294,70 @@ select * from shrubandgrass
 select * from namechange
 
 select * from plantXJ
+select * from gbrl
+select * from checklist
+select * from medichinaori
+select * from mdd
+select * from medizhirl
+select * from mclass
+select * from mfamily
+select * from mpam
+select * from MediChinaOri
+select * from plot where plotno = 'xjn49'
+select plotno,count(distinct(cnname)) from plot group by plotno order by plotno
+select * from soil2022
+
+
+
+select * from mpam
+select * from sp2000qinghai where medi=1
+--update sp2000qinghai set medi=1 from sp2000qinghai a join mpam b on a.cnName=b.cnName or a.latinName=b.latinName
+--update sp2000qinghai set medi=0 where medi is null or medi <> 1
+select * from sp2000qinghai order by autoid
+
+-- 查找var.   的字符串
+select latinNameFull,
+charIndex(' ', latinNameFull, 1),
+CHARINDEX(' ', latinNameFull, charIndex(' ', latinNameFull, 1) +1),
+SUBSTRING(latinNameFull,1, CHARINDEX(' ', latinNameFull, charIndex(' ', latinNameFull, 1) +1))
+from sp2000qinghai where charIndex(' var.' ,latinNamefull, 1) > 1
+
+select latinNameFull,
+charIndex(' var. ', latinNameFull, 1),
+CHARINDEX(' ', latinNameFull, charIndex(' var. ', latinNameFull, 1) +6),
+SUBSTRING(latinNameFull,1, CHARINDEX(' ', latinNameFull, charIndex(' var.', latinNameFull, 1) +6))
+from sp2000qinghai where charIndex(' var. ' ,latinNamefull, 1) > 1
+
+--update sp2000qinghai set latinName=SUBSTRING(latinNameFull,1, CHARINDEX(' ', latinNameFull, charIndex(' ', latinNameFull, 1) +1))
+from sp2000qinghai
+
+-- 更新var.   的字符串
+--update sp2000qinghai set latinName=SUBSTRING(latinNameFull,1, CHARINDEX(' ', latinNameFull, charIndex(' var.', latinNameFull, 1) +6))
+from sp2000qinghai where charIndex(' var. ' ,latinNamefull, 1) > 1
+
+select latinNameFull,
+charIndex(' subsp. ', latinNameFull, 1),
+CHARINDEX(' ', latinNameFull, charIndex(' subsp. ', latinNameFull, 1) +8),
+SUBSTRING(latinNameFull,1, CHARINDEX(' ', latinNameFull, charIndex(' subsp.', latinNameFull, 1) +8))
+from sp2000qinghai where charIndex(' subsp. ' ,latinNamefull, 1) > 1
+
+--update sp2000qinghai set latinName=SUBSTRING(latinNameFull,1, CHARINDEX(' ', latinNameFull, charIndex(' subsp.', latinNameFull, 1) +8))
+from sp2000qinghai where charIndex(' subsp. ' ,latinNamefull, 1) > 1
+
+select latinNamefull from sp2000qinghai where latinNamefull like '% subsp.%'
+
+select latinNamefull,latinName from sp2000qinghai
+
+
+
+
+
+select latinNameFull, latinName from sp2000qinghai
+
+
+
+
+
+
+
+
